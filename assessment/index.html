@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أنماط القرار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#1C8FFF; --card:#3E2C4A; --border:#4E3A5C;
+    --muted:#C7C5D0; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:linear-gradient(160deg,#33193A 0%,#2A1531 55%,#221027 100%);
+    background-attachment:fixed;color:var(--white);min-height:100vh;
+    padding:24px 16px;line-height:1.7;
+  }
+  .wrap{max-width:640px;margin:0 auto}
+  .brand{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+  .logo{font-weight:800;font-size:20px;letter-spacing:1px}
+  .logo .dot{color:var(--accent)}
+  .tagpill{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:4px 12px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px 22px;margin-bottom:16px}
+  h1{font-size:30px;font-weight:800;margin-bottom:10px}
+  h1 .accent{color:var(--accent)}
+  h2{font-size:20px;font-weight:700;margin-bottom:12px}
+  p.lead{color:var(--muted);font-size:16px;margin-bottom:6px}
+  label.fld{display:block;font-size:14px;color:var(--muted);margin:16px 0 8px}
+  input[type=text]{width:100%;background:#2b1c34;border:1px solid var(--border);border-radius:12px;
+    padding:14px;color:var(--white);font-family:inherit;font-size:16px}
+  input[type=text]:focus{outline:none;border-color:var(--accent)}
+  .btn{background:var(--accent);color:#fff;border:none;border-radius:12px;padding:14px 26px;
+    font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;width:100%;margin-top:20px;transition:.15s}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:disabled{background:#3a4a5c;color:#8a93a0;cursor:not-allowed;filter:none}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--white)}
+  .prog{height:6px;background:#2b1c34;border-radius:20px;overflow:hidden;margin-bottom:18px}
+  .prog i{display:block;height:100%;background:var(--accent);width:0;transition:.3s}
+  .qcount{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .qtitle{font-size:19px;font-weight:700;margin-bottom:18px}
+  .heads{display:flex;gap:8px;justify-content:flex-start;margin-bottom:6px;padding-inline-start:2px}
+  .heads span{font-size:11px;color:var(--muted);width:64px;text-align:center}
+  .opt{display:flex;align-items:center;gap:8px;background:#2b1c34;border:1px solid var(--border);
+    border-radius:12px;padding:10px 12px;margin-bottom:10px}
+  .opt .txt{flex:1;font-size:15px}
+  .pick{width:64px;text-align:center}
+  .pick button{width:100%;background:transparent;border:1px solid var(--border);border-radius:8px;
+    color:var(--muted);font-family:inherit;font-size:12px;font-weight:700;padding:7px 0;cursor:pointer}
+  .pick button.near.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .pick button.far.on{background:#7a4a86;border-color:#7a4a86;color:#fff}
+  .navrow{display:flex;gap:10px;margin-top:8px}
+  .navrow .btn{margin-top:0}
+  .barrow{margin-bottom:14px}
+  .barrow .lbl{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+  .bar{height:12px;background:#2b1c34;border-radius:20px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:20px}
+  .res-top{background:linear-gradient(135deg,#1C8FFF22,#7a4a8622);border:1px solid var(--accent);
+    border-radius:14px;padding:16px;margin-bottom:16px}
+  .res-top b{color:var(--accent)}
+  .tag{display:inline-block;background:#2b1c34;border:1px solid var(--border);border-radius:20px;
+    padding:4px 12px;font-size:13px;margin:2px}
+  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <img src="../logo.png" alt="منير" style="height:32px">
+    <div class="tagpill">أنماط القرار</div>
+  </div>
+
+  <!-- INTRO -->
+  <div id="intro" class="card">
+    <h1>أنماط <span class="accent">القرار</span></h1>
+    <p class="lead">أداة سلوكية تقرأ شيئا واحدا: كيف تقرر وتتصرف، خصوصا تحت الضغط. أربعة أنماط قرار، لا أربع شخصيات.</p>
+    <p class="lead" style="margin-top:10px">24 موقف، لكل موقف اختاري العبارة <b>الأقرب لك</b> والعبارة <b>الأبعد عنك</b>. تاخذ 15 إلى 20 دقيقة. لا يوجد صح وغلط.</p>
+    <label class="fld">اسمك</label>
+    <input type="text" id="name" placeholder="اكتبي اسمك هنا" autocomplete="off">
+    <button class="btn" id="start">ابدأ</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="card hidden">
+    <div class="prog"><i id="progbar"></i></div>
+    <div class="qcount" id="qcount"></div>
+    <div class="qtitle" id="qtitle"></div>
+    <div class="heads"><span style="flex:1"></span><span>الأقرب</span><span>الأبعد</span></div>
+    <div id="opts"></div>
+    <div class="navrow">
+      <button class="btn ghost" id="back" style="flex:0 0 90px">رجوع</button>
+      <button class="btn" id="next" disabled>التالي</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result" class="hidden">
+    <div class="card">
+      <h2>نتيجتك يا <span id="rname" class="accent"></span></h2>
+      <div class="res-top" id="restop"></div>
+      <h2 style="margin-top:6px">الوجه العلني</h2>
+      <p class="lead" style="margin-bottom:14px">كيف تظهرين وتتصرفين في العادي.</p>
+      <div id="bars"></div>
+      <h2 style="margin-top:18px">قراءة نمطك</h2>
+      <p class="lead" id="interp" style="margin-bottom:6px"></p>
+      <div class="navrow" style="margin-top:20px">
+        <button class="btn ghost" id="copy" style="flex:1">انسخي النتيجة</button>
+        <a id="wa" class="btn" style="flex:1;text-align:center;text-decoration:none;display:block" href="#">أرسليها لمنير</a>
+      </div>
+    </div>
+    <div class="foot">أنماط القرار · أداة ضمن منهجية السقف · منير حبق</div>
+  </div>
+
+</div>
+<script>
+const WA_NUMBER="966561663725"; // منير
+const STYLES={a:{k:"D",name:"المحرك"},b:{k:"I",name:"المؤثر"},c:{k:"S",name:"الراسخ"},d:{k:"C",name:"المتقن"}};
+const INTERP={
+ a:"المحرك: يحرك الأمور ويصنع الزخم. يقرر بسرعة وحسم، يسعى لنتيجة واستقلالية، ولا يحب البطء ولا فرض الطريقة عليه. راقب التسرع. بيئته المثلى: تحد ونتيجة قابلة للقياس.",
+ b:"المؤثر: يشعل الحماس ويبني العلاقات. يقرر بالعلاقة والإقناع، يسعى للتقدير والتأثير، ولا يحب الروتين والتجاهل. راقب التشتت وضعف المتابعة. بيئته: ناس ومساحة تعبير.",
+ c:"الراسخ: يثبت ويحمي الفريق وينفذ باتساق. قراره متأن ومشاور، يسعى للأمان والانسجام، ولا يحب التغيير المفاجئ والمواجهة. راقب تجنب الحسم. بيئته: وضوح وإيقاع ثابت.",
+ d:"المتقن: يرفع الجودة ويمسك المعايير. قراره مبني على البيانات والدقة، يسعى للصح والإتقان، ولا يحب الأخطاء والعشوائية. راقب شلل التحليل. بيئته: وقت للتفكير ومعلومة كافية."
+};
+const Q=[
+ ["تحت الضغط","أقرر بسرعة وأدفع للأمام","أحفز اللي حولي وأخفف الجو","أهدي الوضع وأحافظ على الاستقرار","أرجع للأرقام والتفاصيل قبل أي خطوة"],
+ ["في الاجتماع","أختصر وأروح للنتيجة","أتكلم وأبني الحماس","أستمع وأدعم رأي الجماعة","أسأل عن التفاصيل والدقة"],
+ ["مهمة جديدة","أبدأ فورا وأعدل وأنا ماشي","أدور مين يشاركني ويتحمس معي","أفضل خطة واضحة وإيقاع ثابت","أجمع المعلومات وأخطط قبل أبدأ"],
+ ["مع الناس","مباشر وصريح وأحيانا حاد","اجتماعي ودود ومنفتح","صبور ومستمع وأتجنب الخلاف","متحفظ وأميل للعمل لحالي"],
+ ["لو صار خطأ","أمسك الموقف وأصلحه بسرعة","أخفف عن الناس وأطمنهم","أثبت وأحافظ على الفريق","أحلل وش صار وليش وأمنع تكراره"],
+ ["المواعيد","النتيجة أهم من الطريقة","أنجز أحسن لما أشتغل مع ناس","ألتزم بثبات وما أحب التغيير المفاجئ","دقيق ومنظم وألتزم بالتفاصيل"],
+ ["فكرة جديدة","لو تجيب نتيجة، يالله نجربها","أتحمس وأنشرها وأبيع الرؤية","أفضل نتأنى ونتأكد قبل ما نغير","أفحصها منطقيا قبل أتبناها"],
+ ["الخلاف","أواجه مباشرة وأحسم","أقرب الطرفين وأخفف الجو","أتجنبه وأبحث عن انسجام","أركز على الحقائق لا العواطف"],
+ ["النقد","أعطيه صريحا ومختصرا","أغلفه بإيجابية وتشجيع","أعطيه بلطف وأخشى أجرح","أبنيه على أدلة ومعايير"],
+ ["التخطيط","خطة خفيفة وتنفيذ سريع","الصورة الكبيرة تحمسني أكثر من التفاصيل","خطوات ثابتة وروتين مريح","تفاصيل دقيقة وسيناريوهات محسوبة"],
+ ["المخاطرة","أقدم عليها لو العائد يستاهل","متفائل وأركب الموجة","أفضل الأمان والمجرب","أحسبها بدقة وأتجنب المفاجآت"],
+ ["طاقتي من","تحقيق نتائج وكسب","الناس والتفاعل والتقدير","الاستقرار والعلاقات الطويلة","الإتقان وحل المشكلات الصعبة"],
+ ["أولويتي في العمل","الإنجاز والتقدم","التقدير والظهور","الاستقرار والأمان","الصح والجودة"],
+ ["لو الخطة تغيرت فجأة","أتأقلم بسرعة وأمشي","أشوفها فرصة وأتحمس","أنزعج من التغيير المفاجئ","أبي أفهم ليش تغيرت قبل"],
+ ["أسلوبي في الكلام","مختصر ومباشر","حماسي وكثير","هادئ ومتزن","دقيق ومحسوب"],
+ ["لما أقود فريق","أحدد الهدف وأدفع","أحمس وألهم","أساند وأحافظ على الانسجام","أنظم وأضبط المعايير"],
+ ["أكثر شي يغيظني","البطء والتردد","الروتين والجمود","الفوضى وكثرة التغيير","الأخطاء وقلة الدقة"],
+ ["القرار الصعب","آخذه بسرعة وأتحمل نتيجته","أستشير ناس وأحس بالجو","أتأنى وأتجنب المخاطرة","أجمع بيانات وأحلل قبل"],
+ ["النجاح عندي","أوصل للهدف وأكسب","أأثر في الناس وأنعرف","علاقات ثابتة وفريق مرتاح","شغل متقن بلا أخطاء"],
+ ["لما أتوتر","أصير حاد وأبي أسيطر","أكثر كلاما وأبالغ","أنسحب وأسكت","أدقق أكثر وأبرد"],
+ ["طريقتي بالتعلم","بالتجربة والفعل","بالنقاش مع الناس","بالتكرار والممارسة الهادئة","بالقراءة والفهم العميق"],
+ ["مع المهام الكثيرة","أرتب حسب الأهم للنتيجة","أبدأ باللي فيه ناس وحركة","أمشي وحدة وحدة بثبات","أرتبها بنظام دقيق"],
+ ["لما أعطي وعدا","ألتزم بالنتيجة بأي طريقة","أتحمس وأحيانا أعد بأكثر من اللازم","ما أعد إلا باللي أقدر ألتزم فيه","أعد بدقة وحدود واضحة"],
+ ["صورتي عن نفسي","قائد وحاسم","اجتماعي ومؤثر","سند ومخلص","دقيق ومتقن"]
+];
+const KEYS=["a","b","c","d"];
+let name="",i=0,ans=Q.map(()=>({near:null,far:null}));
+
+const $=id=>document.getElementById(id);
+$("start").onclick=()=>{name=$("name").value.trim()||"العميل";$("intro").classList.add("hidden");$("quiz").classList.remove("hidden");render();};
+$("name").addEventListener("keydown",e=>{if(e.key==="Enter")$("start").click();});
+
+function render(){
+  const q=Q[i];
+  $("progbar").style.width=((i)/Q.length*100)+"%";
+  $("qcount").textContent="موقف "+(i+1)+" من "+Q.length;
+  $("qtitle").textContent=q[0];
+  const a=ans[i];
+  let h="";
+  for(let j=0;j<4;j++){
+    h+=`<div class="opt"><span class="txt">${q[j+1]}</span>
+      <span class="pick"><button class="near ${a.near===j?'on':''}" data-t="near" data-j="${j}">أقرب</button></span>
+      <span class="pick"><button class="far ${a.far===j?'on':''}" data-t="far" data-j="${j}">أبعد</button></span></div>`;
+  }
+  $("opts").innerHTML=h;
+  $("opts").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+    const t=b.dataset.t,j=+b.dataset.j;
+    if(t==="near"){a.near=(a.near===j?null:j);if(a.far===j)a.far=null;}
+    else{a.far=(a.far===j?null:j);if(a.near===j)a.near=null;}
+    render();
+  });
+  $("back").style.visibility=i===0?"hidden":"visible";
+  $("next").disabled=!(a.near!==null&&a.far!==null);
+  $("next").textContent=i===Q.length-1?"اعرضي النتيجة":"التالي";
+}
+$("next").onclick=()=>{if(i<Q.length-1){i++;render();}else finish();};
+$("back").onclick=()=>{if(i>0){i--;render();}};
+
+function finish(){
+  const most={a:0,b:0,c:0,d:0},least={a:0,b:0,c:0,d:0};
+  ans.forEach(a=>{most[KEYS[a.near]]++;least[KEYS[a.far]]++;});
+  const pub=[...KEYS].sort((x,y)=>most[y]-most[x]);
+  const core=[...KEYS].sort((x,y)=>least[x]-least[y]); // اقل ابعاد = اقوى نواة
+  const low=[...KEYS].sort((x,y)=>least[y]-least[x])[0]; // اكثر ابعاد = الاخفض
+  $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
+  $("rname").textContent=name;
+  $("restop").innerHTML=`نمطك الظاهر: <b>${STYLES[pub[0]].name}</b> · تحت الضغط يظهر: <b>${STYLES[core[0]].name}</b> · الأخفض: <span class="tag">${STYLES[low].name}</span>`;
+  let bars="";
+  pub.forEach(k=>{bars+=`<div class="barrow"><div class="lbl"><span>${STYLES[k].name} (${STYLES[k].k})</span><span>${most[k]}</span></div><div class="bar"><i style="width:${most[k]/24*100}%"></i></div></div>`;});
+  $("bars").innerHTML=bars;
+  $("interp").textContent=INTERP[pub[0]]+(pub[1]?" ونمطك الثاني "+STYLES[pub[1]].name+"، فاقرئي تركيبتك من أعلى نمطين.":"");
+  const summary=`نتيجة أنماط القرار\nالاسم: ${name}\nالوجه العلني: ${STYLES[pub[0]].name} (${STYLES[pub[0]].k})\nتحت الضغط: ${STYLES[core[0]].name}\nالأخفض: ${STYLES[low].name}\nالترتيب (الأقرب): D=${most.a} I=${most.b} S=${most.c} C=${most.d}\nالأبعد: D=${least.a} I=${least.b} S=${least.c} C=${least.d}`;
+  $("wa").href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(summary);
+  $("copy").onclick=()=>{navigator.clipboard.writeText(summary).then(()=>{$("copy").textContent="تم النسخ";setTimeout(()=>$("copy").textContent="انسخي النتيجة",1500);});};
+}
+</script>
+</body>
+</html>
